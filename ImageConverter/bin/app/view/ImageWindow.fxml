@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.ImageWindow">
+  <tabs>
+    <Tab fx:id="Label1" text="Select files">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="46.0" layoutY="56.0" text="Select the files you need to convert" />
+                  <Button layoutX="253.0" layoutY="52.0" mnemonicParsing="false" onAction="#onChooseClick" text="Choose file" />
+                  <Label layoutX="46.0" layoutY="97.0" text="Select your preference" />
+                  <RadioButton fx:id="rb_single" layoutX="189.0" layoutY="97.0" mnemonicParsing="false" text="Select one image">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Group" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rb_multiple" layoutX="189.0" layoutY="127.0" mnemonicParsing="false" text="Select multiple images" toggleGroup="$Group" />
+                  <ListView fx:id="listView" layoutX="361.0" layoutY="52.0" prefHeight="200.0" prefWidth="200.0" />
+                  <Label layoutX="377.0" layoutY="263.0" text="View the files you have selected" />
+                  <Button layoutX="40.0" layoutY="173.0" mnemonicParsing="false" onAction="#onDeleteClick" text="Delete selected file" />
+                  <Button fx:id="convertButton" layoutX="361.0" layoutY="309.0" mnemonicParsing="false" onAction="#onConvertClick" prefHeight="25.0" prefWidth="201.0" text="Convert to Gray-Scale Images" />
+                  <Button layoutX="38.0" layoutY="309.0" mnemonicParsing="false" onAction="#onViewClick" prefHeight="25.0" prefWidth="121.0" text="View image results" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="Label2" text="Visualise result">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="311.0" fitWidth="325.0" layoutX="28.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+                  <ChoiceBox fx:id="choiceBox" layoutX="402.0" layoutY="80.0" prefWidth="150.0" />
+                  <Button layoutX="400.0" layoutY="124.0" mnemonicParsing="false" onAction="#onShowClick" prefHeight="25.0" prefWidth="154.0" text="Display converted image" />
+                  <Label layoutX="400.0" layoutY="23.0" text="Select the converted image you &#10;want to visualise" />
+                  <Label layoutX="386.0" layoutY="169.0" prefHeight="68.0" prefWidth="200.0" text="For more information about gray &#10;scaling algorithm (average method) &#10;you can read more here:" />
+                  <Hyperlink layoutX="386.0" layoutY="248.0" onAction="#onLinkClick" text="https://stackoverflow.com" />
+                  <Label fx:id="label" layoutX="388.0" layoutY="279.0" text="Hyperlink not visited" />
+                  <ProgressBar fx:id="progressBar" layoutX="386.0" layoutY="316.0" prefWidth="200.0" progress="0.0" />
+                  <Label fx:id="progressLabel" layoutX="540.0" layoutY="340.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
